@@ -1,0 +1,60 @@
+<app-student-count
+  [all]="getTotalStudentsCount()"
+  [male]="getMaleStudentsCount()"
+  [female]="getFemaleStudentsCount()"
+  (countRadioButtonSelectionChanged)="onStudentCountRadioButtonChange($event)"
+>
+</app-student-count>
+
+<br /><br />
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>DOB</th>
+      <th>Course Fee</th>
+      <th>Index</th>
+      <th>First</th>
+      <th>Last</th>
+      <th>Even</th>
+      <th>Odd</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container
+      *ngFor="
+        let student of students;
+        let i = index;
+        let isFirst = first;
+        let isLast = last;
+        let isEven = even;
+        let isOdd = odd
+      "
+    >
+      <tr
+        *ngIf="
+          selectedStudentCountRadioButton == 'All' ||
+          selectedStudentCountRadioButton == student.Gender
+        "
+      >
+        <td>{{ student.ID | uppercase }}</td>
+        <td>{{ student.FirstName | uppercase }}</td>
+        <td>{{ student.Gender }}</td>
+        <td>{{ student.DOB | date: "dd/MM/y" }}</td>
+        <td>{{ student.CourseFee | currency: "USD":true:"1.2-2" }}</td>
+        <td>{{ i }}</td>
+        <td>{{ isFirst }}</td>
+        <td>{{ isLast }}</td>
+        <td>{{ isEven }}</td>
+        <td>{{ isOdd }}</td>
+      </tr>
+    </ng-container>
+    <tr *ngIf="!students || students.length == 0">
+      <td colspan="10">
+        No Students to display
+      </td>
+    </tr>
+  </tbody>
+</table>

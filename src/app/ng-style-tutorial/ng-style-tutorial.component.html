@@ -1,0 +1,10 @@
+<div *ngFor="let student of students">
+  <span
+    [ngStyle]="{
+      'background-color': student.Gender === 'Male' ? 'red' : 'green'
+    }"
+  >
+    Name: {{ student.Name }}, Gender: {{ student.Gender }}, Branch:
+    {{ student.Branch }}
+  </span>
+</div>
