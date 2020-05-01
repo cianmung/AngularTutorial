@@ -21,6 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgRoutingTutorialComponent } from './ng-routing-tutorial/ng-routing-tutorial.component';
 import { LoginComponent } from './login/login.component';
 import { CustomerrorComponent } from './customerror/customerror.component';
+import { NgServiceTutorialComponent } from './ng-service-tutorial/ng-service-tutorial.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { CustomerrorComponent } from './customerror/customerror.component';
     NgRoutingTutorialComponent,
     LoginComponent,
     CustomerrorComponent,
+    NgServiceTutorialComponent,
   ],
   imports: [BrowserModule, EmployeeModule, FormsModule, AppRoutingModule],
   providers: [],
